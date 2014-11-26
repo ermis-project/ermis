@@ -1,0 +1,30 @@
+*.tar.gz
+*.ext
+src/*.exe
+src/ermiscoin
+src/ermiscoind
+src/test_ermiscoin
+.*.swp
+*.*~*
+*.bak
+*.rej
+*.orig
+*.o
+*.patch
+*.mod
+.ermiscoin
+# Compilation and Qt preprocessor part
+*.qm
+Makefile
+ermiscoin-qt
+ermiscoin-qt.app
+# Unit-tests
+Makefile.test
+ermiscoin-qt_test
+# Resources cpp
+qrc_*.cpp
+# Qt creator
+*.pro.user
+# Mac specific
+.DS_Store
+build

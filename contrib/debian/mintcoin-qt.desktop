@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Ermiscoin
+Comment=Ermiscoin P2P Cryptocurrency
+Comment[fr]=Ermiscoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Ermiscoin, eşten eşe kriptografik sanal para birimi
+Comment[es]=Ermiscoin, una criptomoneda P2P
+Exec=/usr/bin/ermiscoin-qt
+Terminal=false
+Type=Application
+Icon=/usr/share/pixmaps/bitcoin80.xpm
+MimeType=x-scheme-handler/ermiscoin;
+Categories=Office;

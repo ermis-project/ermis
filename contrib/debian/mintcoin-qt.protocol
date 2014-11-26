@@ -1,0 +1,11 @@
+[Protocol]
+exec=ermiscoin-qt '%u'
+protocol=ermiscoin
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false

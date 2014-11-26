@@ -1,0 +1,2 @@
+debian/bin/ermiscoind usr/bin
+src/ermiscoind usr/lib/ermiscoin
