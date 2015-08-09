@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = ermiscoin-qt
-VERSION = 1.0.0.0
+VERSION = 1.2.0.1
 INCLUDEPATH += src src/json src/qt
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
@@ -42,8 +42,8 @@ UI_DIR = build
 
 # use: qmake "RELEASE=1"
 contains(RELEASE, 1) {
-    # Mac: compile for maximum compatibility (10.5, 32-bit)
-    macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.5 -arch i386 -isysroot /Developer/SDKs/MacOSX10.5.sdk
+    # Mac: compile for maximum compatibility (10.5, 64-bit)
+    macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.5 -arch x86_64 -isysroot $(xcode-select --print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.5.sdk
 
     !windows:!macx {
         # Linux: static link
@@ -59,7 +59,8 @@ QMAKE_LFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
 # This can be enabled for Windows, when we switch to MinGW >= 4.4.x.
 }
 # for extra security on Windows: enable ASLR and DEP via GCC linker flags
-win32:QMAKE_LFLAGS *= -Wl,--dynamicbase -Wl,--nxcompat -Wl,--large-address-aware -static
+#win32:QMAKE_LFLAGS *= -Wl,--dynamicbase -Wl,--nxcompat -Wl,--large-address-aware -static
+win32:QMAKE_LFLAGS *= -Wl,--dynamicbase -Wl,--nxcompat -static
 win32:QMAKE_LFLAGS += -static-libgcc -static-libstdc++
 
 # use: qmake "USE_QRCODE=1"
@@ -402,9 +403,9 @@ windows:!contains(MINGW_THREAD_BUGFIX, 0) {
     LIBS += -lrt
 }
 
-macx:HEADERS += src/qt/macdockiconhandler.h
-macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm
-macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit
+macx:HEADERS += src/qt/macdockiconhandler.h src/qt/macnotificationhandler.h
+macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm src/qt/macnotificationhandler.mm
+macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit -framework CoreServices
 macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
 macx:ICON = src/qt/res/icons/bitcoin.icns
 macx:TARGET = "Ermiscoin-Qt"
