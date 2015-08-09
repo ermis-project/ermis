@@ -29,6 +29,8 @@ class CNode;
 
 //#define POW_CUTOFF_HEIGHT 20000
 #define POW_CUTOFF_HEIGHT  200000	// extend PoW to boost PoS while PoW rewards are negligible
+#define POW_REINIT_HEIGHT  257053	// block where freezed
+#define POW_CUTOFF_NHEIGHT  2000000	// extend PoW to boost PoS while PoW rewards are negligible
 
 static const unsigned int MAX_BLOCK_SIZE = 1000000;
 static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2;
